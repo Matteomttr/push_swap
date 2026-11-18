@@ -14,10 +14,12 @@
 # define PUSH_SWAP_H
 
 #include <stdlib.h>
+#include "src/libft/ft_printf/ft_printf.h"
 
 char	*ft_strjoin(const char *s1, const char *s2);
 size_t	ft_strlen(const char *s);
 int		*ft_split(char const *s, char c);
 int		ft_atoi(const char *nptr);
+int		*get_tab(int argc, char **argv, char **flag);
 
 #endif
