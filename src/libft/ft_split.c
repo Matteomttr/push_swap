@@ -6,11 +6,11 @@
 /*   By: mamatter <mamatter@student.42angouleme.fr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/18 11:24:35 by mamatter          #+#    #+#             */
-/*   Updated: 2026/11/18 14:02:13 by mamatter         ###   ########.fr       */
+/*   Updated: 2026/11/18 15:19:05 by mamatter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../push_swap.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -68,13 +68,13 @@ static int	*ft_free_all(int *lst, int size)
 	while (size > 0)
 	{
 		size--;
-		free(lst[size]);
+		free(ft_itoa(lst[size]));
 	}
 	free(lst);
 	return (NULL);
 }
 
-static int	 *ft_fill(int *lst, char const *s, char c, int i)
+static int	*ft_fill(int *lst, char const *s, char c, int i)
 {
 	int	start;
 	int	a;
@@ -101,10 +101,10 @@ static int	 *ft_fill(int *lst, char const *s, char c, int i)
 	return (lst);
 }
 
-int	*ft_split(char const *s, char c)
+t_list	*ft_split(char const *s, char c)
 {
-	int	*lst;
-	int	i;
+	t_list	*lst;
+	int		i;
 
 	i = 0;
 	if (!s)
@@ -115,3 +115,5 @@ int	*ft_split(char const *s, char c)
 	lst = ft_fill(lst, s, c, i);
 	return (lst);
 }
+
+t_list	*ft_chainedsplit(char const *s, char c)

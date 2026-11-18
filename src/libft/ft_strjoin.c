@@ -6,11 +6,11 @@
 /*   By: mamatter <mamatter@student.42angouleme.fr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/18 10:58:25 by mamatter          #+#    #+#             */
-/*   Updated: 2026/11/18 11:52:26 by mamatter         ###   ########.fr       */
+/*   Updated: 2026/11/18 14:28:32 by mamatter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../push_swap.h"
 
 size_t	ft_strlen(const char *s)
 {
