@@ -33,5 +33,6 @@ void			ft_lstadd_front(t_list **lst, t_list *new_lst);
 unsigned int	ft_lstsize(t_list *lst);
 t_list			*ft_lstlast(t_list *lst);
 void			ft_lstadd_back(t_list **lst, t_list *new_lst);
+int				ft_strcmp(const char *s1, const char *s2);
 
 #endif
