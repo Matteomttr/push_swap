@@ -6,11 +6,11 @@
 /*   By: mamatter <mamatter@student.42angouleme.fr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/18 11:30:55 by mamatter          #+#    #+#             */
-/*   Updated: 2026/11/18 14:25:51 by mamatter         ###   ########.fr       */
+/*   Updated: 2026/11/18 15:35:16 by mamatter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "libft.h"
 
 int	ft_atoi(const char *nptr)
 {

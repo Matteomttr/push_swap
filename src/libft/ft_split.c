@@ -6,11 +6,11 @@
 /*   By: mamatter <mamatter@student.42angouleme.fr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/18 11:24:35 by mamatter          #+#    #+#             */
-/*   Updated: 2026/11/18 15:19:05 by mamatter         ###   ########.fr       */
+/*   Updated: 2026/11/18 17:05:07 by mamatter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -37,83 +37,51 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		sub[i] = s[start + i];
 		i++;
 	}
+	sub[i] = '\0';
 	return (sub);
 }
 
-static int	ft_count_word(char const *s, char c)
+static int	ft_add_word(t_list **lst, char const *s, int start, int len)
 {
-	int	len;
-	int	i;
+	char	*word;
+	t_list	*node;
 
-	i = 0;
-	len = 0;
-	if (!s)
+	word = ft_substr(s, start, len);
+	if (!word)
 		return (0);
-	while (s[i])
-	{
-		if (s[i] != c)
-		{
-			len++;
-			while (s[i] && s[i] != c)
-				i++;
-		}
-		else
-			i++;
-	}
-	return (len);
-}
-
-static int	*ft_free_all(int *lst, int size)
-{
-	while (size > 0)
-	{
-		size--;
-		free(ft_itoa(lst[size]));
-	}
-	free(lst);
-	return (NULL);
-}
-
-static int	*ft_fill(int *lst, char const *s, char c, int i)
-{
-	int	start;
-	int	a;
-
-	a = 0;
-	while (s[i])
-	{
-		if (s[i] != c)
-		{
-			start = i;
-			while (s[i] && s[i] != c)
-				i += 1;
-			lst[a] = ft_atoi(ft_substr(s, start, i - start));
-			if (!lst[a])
-			{
-				lst = ft_free_all(lst, a);
-				return (NULL);
-			}
-			a++;
-		}
-		else
-			i += 1;
-	}
-	return (lst);
+	node = ft_lstnew(ft_atoi(word));
+	free(word);
+	if (!node)
+		return (0);
+	ft_lstadd_back(lst, node);
+	return (1);
 }
 
 t_list	*ft_split(char const *s, char c)
 {
 	t_list	*lst;
 	int		i;
+	int		start;
 
-	i = 0;
 	if (!s)
 		return (NULL);
-	lst = malloc((ft_count_word(s, c) + 1) * sizeof(int *));
-	if (!lst)
-		return (NULL);
-	lst = ft_fill(lst, s, c, i);
+	lst = NULL;
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] != c)
+		{
+			start = i;
+			while (s[i] && s[i] != c)
+				i++;
+			if (!ft_add_word(&lst, s, start, i - start))
+			{
+				free(lst);
+				return (NULL);
+			}
+		}
+		else
+			i++;
+	}
 	return (lst);
 }
-
-t_list	*ft_chainedsplit(char const *s, char c)

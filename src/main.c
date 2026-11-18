@@ -6,7 +6,7 @@
 /*   By: mamatter <mamatter@student.42angouleme.fr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/18 09:47:02 by mamatter          #+#    #+#             */
-/*   Updated: 2026/11/18 14:17:19 by mamatter         ###   ########.fr       */
+/*   Updated: 2026/11/18 16:37:17 by mamatter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,18 @@
 int	main(int argc, char **argv)
 {
 	char	*flag;
-	int		*stack_a;
+	t_list	*stack_a;
+	t_list	*stack_b;
 
 	if (argc < 2)
 		return (1);
 	stack_a = get_tab(argc, argv, &flag);
-	if (stack_a == NULL)
-		return (1);
-	int i = 0;
-	while (stack_a[i])
+	while (stack_a)
 	{
-		ft_printf("%d\n", stack_a[i]);
-		i++;
+		ft_printf("%d\n", stack_a->content);
+		stack_b = stack_a;
+		stack_a = stack_a->next;
+		free(stack_b);
 	}
 	return (0);
 }

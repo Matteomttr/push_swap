@@ -6,11 +6,11 @@
 /*   By: mamatter <mamatter@student.42angouleme.fr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/18 14:33:32 by mamatter          #+#    #+#             */
-/*   Updated: 2026/11/18 14:35:35 by mamatter         ###   ########.fr       */
+/*   Updated: 2026/11/18 15:34:31 by mamatter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "libft.h"
 
 static char	*ft_strcpy(char *dest, const char *src)
 {

@@ -6,24 +6,24 @@
 /*   By: mamatter <mamatter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 17:37:05 by mamatter          #+#    #+#             */
-/*   Updated: 2026/11/04 16:32:18 by mamatter         ###   ########.fr       */
+/*   Updated: 2026/11/18 15:44:58 by mamatter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /* Adds a node at the end of the list. */
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_list **lst, t_list *new_lst)
 {
 	t_list	*last;
 
-	if (!lst || !new)
+	if (!lst || !new_lst)
 		return ;
 	if (!*lst)
 	{
-		*lst = new;
+		*lst = new_lst;
 		return ;
 	}
 	last = ft_lstlast(*lst);
-	last->next = new;
+	last->next = new_lst;
 }
