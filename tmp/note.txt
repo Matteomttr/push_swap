@@ -1,0 +1,162 @@
+PUSH_SWAP — FICHE DE PROJET
+1. Objectif du projet
+
+Créer un programme en C appelé push_swap qui trie une liste de nombres dans l'ordre croissant à l'aide de deux piles :
+
+Stack A : contient les nombres à trier.
+Stack B : sert de pile temporaire.
+
+Le programme doit trouver une suite d'opérations permettant de trier les nombres avec le moins de mouvements possible.
+
+À la fin :
+
+Stack A doit être triée dans l'ordre croissant.
+Stack B doit être vide.
+Le plus petit nombre doit être au sommet de A.
+2. Les opérations à connaître
+
+Il existe 11 opérations autorisées :
+
+Opération	Fonction
+sa	Échange les deux premiers éléments de A
+sb	Échange les deux premiers éléments de B
+ss	Échange les deux premières valeurs des deux piles
+pa	Déplace un élément de B vers A
+pb	Déplace un élément de A vers B
+ra	Place le premier élément de A en bas
+rb	Place le premier élément de B en bas
+rr	Effectue ra et rb
+rra	Place le dernier élément de A en haut
+rrb	Place le dernier élément de B en haut
+rrr	Effectue rra et rrb
+3. Les quatre algorithmes obligatoires
+
+Tu dois développer quatre stratégies différentes :
+
+Stratégie	Complexité	Principe
+Simple	O(n²)	Tri simple
+Medium	O(n√n)	Tri par groupes (chunks)
+Complex	O(n log n)	Tri Radix adapté
+Adaptive	Adaptatif	Choisit selon le désordre
+
+Le programme doit permettre de sélectionner chaque stratégie.
+
+Si aucune stratégie n'est indiquée, Adaptive est utilisé automatiquement.
+
+4. Le calcul du désordre
+
+Le désordre mesure à quel point les nombres sont éloignés de l'ordre croissant.
+
+0 : pile déjà triée.
+1 : pile complètement inversée.
+
+L'algorithme Adaptive doit utiliser ces seuils :
+
+Désordre	Stratégie
+Inférieur à 0,2	Simple
+De 0,2 à moins de 0,5	Medium
+Supérieur ou égal à 0,5	Complex
+
+Le désordre doit être calculé avant de commencer le tri.
+
+5. Gestion des erreurs
+
+Le programme doit détecter :
+
+Les arguments qui ne sont pas des nombres.
+Les nombres en dehors des limites autorisées.
+Les doublons.
+Les arguments invalides.
+
+En cas d'erreur, afficher Error sur la sortie d'erreur.
+
+Si aucun argument n'est fourni, ne rien afficher.
+
+6. Le mode Benchmark
+
+L'option --bench permet d'afficher les statistiques du tri :
+
+Pourcentage de désordre.
+Stratégie utilisée.
+Complexité de l'algorithme.
+Nombre total d'opérations.
+Nombre de chaque type d'opération.
+
+Les opérations doivent être affichées sur stdout et les statistiques sur stderr.
+
+7. Organisation du travail
+
+Voici l'ordre conseillé pour développer le projet :
+
+Comprendre le fonctionnement des deux piles.
+Créer les structures de données.
+Gérer les arguments et les erreurs.
+Implémenter les 11 opérations.
+Tester les opérations.
+Réaliser les tris de 2, 3 et 5 nombres.
+Développer l'algorithme Simple.
+Développer l'algorithme Medium.
+Développer l'algorithme Complex.
+Calculer le désordre.
+Développer Adaptive.
+Ajouter le Benchmark.
+Tester et optimiser les performances.
+8. Objectifs de performance
+Nombre de nombres	Minimum requis	Bon résultat	Excellent
+100	< 2 000	< 1 500	< 700
+500	< 12 000	< 8 000	< 5 500
+
+Les résultats seront vérifiés avec le programme Checker fourni.
+
+9. Conditions du projet
+Projet obligatoirement réalisé en C.
+Travail en groupe de exactement 2 personnes.
+Respect de la Norminette.
+Aucune variable globale.
+Aucune fuite mémoire.
+Makefile obligatoire.
+Compilation avec -Wall -Wextra -Werror.
+Les deux participants doivent comprendre et savoir expliquer le projet.
+10. README obligatoire
+
+Le README doit présenter :
+
+Les deux participants et leurs logins.
+Le but du projet.
+Les instructions de compilation et d'utilisation.
+Les algorithmes développés.
+Le fonctionnement et la complexité des stratégies.
+Les ressources utilisées.
+L'utilisation éventuelle de l'IA.
+La répartition du travail.
+11. Bonus : Checker
+
+Créer un programme checker qui :
+
+Reçoit une liste de nombres.
+Lit les opérations à effectuer.
+Exécute ces opérations.
+Vérifie si A est triée et B vide.
+
+Résultats possibles :
+
+OK : tri réussi.
+KO : tri incorrect.
+Error : erreur détectée.
+
+Le bonus est évalué uniquement si toute la partie obligatoire est validée.
+
+OBJECTIF FINAL
+
+Réussir à créer un programme capable de trier efficacement des nombres avec deux piles et 11 opérations.
+
+Les priorités sont :
+
+Bien comprendre les piles.
+Maîtriser les opérations.
+Développer les quatre algorithmes.
+Comprendre et calculer le désordre.
+Optimiser le nombre d'opérations.
+Réussir les tests du Checker.
+
+Conseil : avance étape par étape. Ne commence pas les algorithmes avant de maîtriser parfaitement les opérations sur les piles.

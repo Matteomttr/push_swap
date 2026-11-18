@@ -6,26 +6,25 @@ CFLAGS= -Wall -Werror -Wextra
 AR= ar
 ARFLAGS= rsc
 
-SRC_DIR= src
-OBJ_DIR= obj
-
 SRCS=	
 OBJS= 	
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
+	@$(AR) $(ARFLAGS) $(NAME) $(OBJS)
+	@echo "Archive created successfully!"
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	@mkdir -p $(OBJ_DIR)
-	$(CC) $(CFLAGS) -c $< -o $@
+%.o: %.c	
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
-
+	@rm -f $(OBJS)
+	@echo "Object successfully deleted!"
+	
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
+	@echo "Archive successfully deleted!"
 
 re: fclean all
 

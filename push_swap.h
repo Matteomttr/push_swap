@@ -13,6 +13,11 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+#include <stdlib.h>
 
+char	*ft_strjoin(const char *s1, const char *s2);
+size_t	ft_strlen(const char *s);
+int		*ft_split(char const *s, char c);
+int		ft_atoi(const char *nptr);
 
 #endif
