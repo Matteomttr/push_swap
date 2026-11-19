@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include "src/libft/libft.h"
 
+void	redirect(char *flag, t_list **stack_a, t_list **stack_b);
 t_list	*get_tab(int argc, char **argv, char **flag);
 
 #endif

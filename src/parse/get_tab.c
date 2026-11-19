@@ -6,7 +6,7 @@
 /*   By: mamatter <mamatter@student.42angouleme.fr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/18 13:44:03 by mamatter          #+#    #+#             */
-/*   Updated: 2026/11/18 18:05:31 by mamatter         ###   ########.fr       */
+/*   Updated: 2026/11/19 10:51:44 by mamatter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ static int	ft_isdigit(char *tab)
 	j = 0;
 	while (tab[j])
 	{
-		if (tab[j] != ' ' && !(tab[j] >= '0' && tab[j] <= '9'))
+		if (tab[j] != ' ' && !(tab[j] >= '0' && tab[j] <= '9')
+			&& !(tab[j] == '-' && (tab[j + 1] >= '0' && tab[j + 1] <= '9')))
 			return (1);
 		j++;
 	}
@@ -67,7 +68,7 @@ t_list	*get_tab(int argc, char **argv, char **flag)
 	if (ft_isdigit(tab))
 	{
 		free(tab);
-		ft_printf("Error");
+		ft_printf("Error\n");
 		return (NULL);
 	}
 	new_stack = ft_split(tab, ' ');
