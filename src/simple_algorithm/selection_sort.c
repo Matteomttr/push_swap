@@ -47,8 +47,8 @@ int	selection_sort(t_list **a, t_list **b)
 		}
 		tmp = *a + i++;
 		if (less == *a + 1)
-			swap(a);
-		else
+			swap(a)
+		else //if (less != *a + i)
 			long_sort(a, b, tmp, less);
 	}
 	return (1);
